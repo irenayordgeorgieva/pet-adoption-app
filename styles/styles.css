@@ -1,0 +1,41 @@
+h1 {
+  text-align: center;
+  font-family: 'Courier';
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar-item, .nav-bar-item:hover, .nav-bar-item:active, .nav-bar-item:link, .nav-bar-item:visited {
+  cursor: pointer;
+  font-family: "Courier";
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-bar-item:hover {
+  text-decoration: underline;
+}
+
+.main-cat-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html, body, #__next, #page_container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar-item-separator {
+  margin: 0
+}
