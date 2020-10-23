@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/irenayordgeorgieva/react-nextjs-template#readme",
   "dependencies": {
-    "next": "^9.5.3",
+    "firebase-admin": "^9.2.0",
+    "next": "^9.5.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
