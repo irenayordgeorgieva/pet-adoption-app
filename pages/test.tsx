@@ -1,17 +1,27 @@
 import Link from 'next/link'
+import React from 'react'
 
-const Test = () => (
+const strings: Record<string, string> = {
+  badRequest: 'Bad Request test',
+  homePage: 'Go to home page',
+  notFound: 'Not Found test',
+  testPage: 'Test page',
+}
+
+interface TestProps {}
+
+const Test = ({}: TestProps): JSX.Element => (
   <div id="page_container">
-    <h1>Test page</h1>
+    <h1>{strings.testPage}</h1>
     <div className="nav-bar">
       <Link href="/">
-        <a className="nav-bar-item">Go to home page</a>
+        <a className="nav-bar-item">{strings.homePage}</a>
       </Link>
       <Link href="/badRequestTest">
-        <a className="nav-bar-item">Bad Request test</a>
+        <a className="nav-bar-item">{strings.badRequest}</a>
       </Link>
       <Link href="/tesst">
-        <a className="nav-bar-item">Not Found test</a>
+        <a className="nav-bar-item">{strings.notFound}</a>
       </Link>
     </div>
     <div className="main-cat-image-container">
@@ -19,5 +29,6 @@ const Test = () => (
     </div>
   </div>
 )
+
 
 export default Test

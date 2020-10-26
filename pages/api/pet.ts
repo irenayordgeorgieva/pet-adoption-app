@@ -1,8 +1,8 @@
-import { NextApiRequest, NextApiResponse } from "next"
+import type { NextApiRequest, NextApiResponse } from 'next'
 import db from '../../lib/db'
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  return new Promise((resolve, reject) => {
+export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
+  return new Promise((resolve) => {
     db.collection('pets').get()
       .then(snapshot => snapshot.docs.map(doc => doc.data()))
       .then((pets) => {
@@ -13,7 +13,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         }
         resolve()
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(405).json(err)
         resolve()
       })
