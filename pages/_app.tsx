@@ -1,6 +1,7 @@
 import '../styles/styles.css'
 import type { AppProps } from 'next/app'
+import React from 'react'
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App = ({ Component, pageProps }: AppProps): JSX.Element => <Component {...pageProps} />
+
+export default App

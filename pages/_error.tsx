@@ -1,14 +1,22 @@
+import type { NextPageContext } from 'next/types'
+import React from 'react'
 import { useRouter } from 'next/router'
-import { NextPageContext } from 'next/types'
 
-const Error = ({ statusCode }: ErrorProps) => {
+const strings: Record<string, string> = {
+  goBack: 'Go back',
+}
+
+interface ErrorProps {
+  statusCode: number;
+}
+
+const Error = ({ statusCode }: ErrorProps): JSX.Element => {
   const router = useRouter()
-
   return (
     <div id="page_container">
       <h1>{`Error ${statusCode}`}</h1>
       <div className="nav-bar">
-        <span onClick={() => router.back()}><a className="nav-bar-item">Go back</a></span>
+        <span onClick={(): void => router.back()}><a className="nav-bar-item">{strings.goBack}</a></span>
       </div>
       <div className="main-cat-image-container">
         <img className="main-cat-image" src={`https://http.cat/${statusCode}.jpg`} />
@@ -17,13 +25,9 @@ const Error = ({ statusCode }: ErrorProps) => {
   )
 }
 
-Error.getInitialProps = ({ res, err }: NextPageContext) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
-  return { statusCode }
-}
-
-type ErrorProps = {
-  statusCode: number
+Error.getInitialProps = async ({ res, err }: NextPageContext): Promise<ErrorProps> => {
+  const statusCode = res?.statusCode ?? err?.statusCode ?? 404
+  return Promise.resolve({ statusCode })
 }
 
 export default Error
