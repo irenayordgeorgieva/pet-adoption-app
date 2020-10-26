@@ -1,8 +1,11 @@
+import * as dotenv from 'dotenv'
 import admin from 'firebase-admin'
+
+dotenv.config()
 
 const serviceAccount = {
   clientEmail: process.env.CLIENT_EMAIL,
-  privateKey: process.env.PRIVATE_KEY,
+  privateKey: (process.env.PRIVATE_KEY ?? '').replace(/\\n/gu, '\n'),
   projectId: process.env.PROJECT_ID,
 }
 

@@ -57,6 +57,7 @@ module.exports = {
     }],
     'comma-dangle': 'off',
     'dot-location': ['error', 'property'],
+    'function-call-argument-newline': ['error', 'consistent'],
     'indent': 'off',
     'jsx-quotes': ['error', 'prefer-double'],
     'linebreak-style': 'off',

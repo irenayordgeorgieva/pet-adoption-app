@@ -4,6 +4,8 @@
   "description": "NextJS React App Template",
   "scripts": {
     "dev": "next dev -p 8082",
+    "vercel-login": "vercel login",
+    "vercel-dev": "vercel dev --listen 8083",
     "build": "next build",
     "start": "next start -p 3002",
     "lint": "eslint ."
@@ -26,6 +28,7 @@
   },
   "homepage": "https://github.com/irenayordgeorgieva/react-nextjs-template#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "firebase-admin": "^9.2.0",
     "next": "^9.5.4",
     "react": "^16.13.1",
@@ -40,6 +43,7 @@
     "@typescript-eslint/parser": "^4.5.0",
     "eslint": "^7.11.0",
     "eslint-plugin-react": "^7.21.5",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "vercel": "^20.1.2"
   }
 }
