@@ -1,27 +1,24 @@
 import Link from 'next/link'
 import React from 'react'
+import type { TFunction } from 'next-i18next'
+import { withTranslation } from 'next-i18next'
 
-const strings: Record<string, string> = {
-  badRequest: 'Bad Request test',
-  homePage: 'Go to home page',
-  notFound: 'Not Found test',
-  testPage: 'Test page',
+interface TestProps {
+  t: TFunction;
 }
 
-interface TestProps {}
-
-const Test = ({}: TestProps): JSX.Element => (
+const Test = ({ t: tr }: TestProps): JSX.Element => (
   <div id="page_container">
-    <h1>{strings.testPage}</h1>
+    <h1>{tr('testPage')}</h1>
     <div className="nav-bar">
       <Link href="/">
-        <a className="nav-bar-item">{strings.homePage}</a>
+        <a className="nav-bar-item">{tr('homePage')}</a>
       </Link>
       <Link href="/badRequestTest">
-        <a className="nav-bar-item">{strings.badRequest}</a>
+        <a className="nav-bar-item">{tr('badRequest')}</a>
       </Link>
       <Link href="/tesst">
-        <a className="nav-bar-item">{strings.notFound}</a>
+        <a className="nav-bar-item">{tr('notFound')}</a>
       </Link>
     </div>
     <div className="main-cat-image-container">
@@ -31,4 +28,4 @@ const Test = ({}: TestProps): JSX.Element => (
 )
 
 
-export default Test
+export default withTranslation()(Test)

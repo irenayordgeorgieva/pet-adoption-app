@@ -1,19 +1,24 @@
+import { i18n, withTranslation } from '../lib/i18n'
 import Link from 'next/link'
 import React from 'react'
+import type { TFunction } from 'next-i18next'
 
-const strings: Record<string, string> = {
-  homePage: 'Home page',
-  testPage: 'Go to test page',
+interface HomePageTypes {
+  t: TFunction;
 }
 
-interface MainProps {}
-
-const Main = ({}: MainProps): JSX.Element => (
+const HomePage = ({ t: tr }: HomePageTypes): JSX.Element => (
   <div id="page_container">
-    <h1>{strings.homePage}</h1>
+    <h1>{tr('homePage')}</h1>
+    <button
+      onClick={async (): Promise<TFunction> => i18n.changeLanguage(i18n.language === 'en' ? 'bg' : 'en')}
+      type="button"
+    >
+      {tr('change-locale')}
+    </button>
     <div className="nav-bar">
       <Link href="/test">
-        <a className="nav-bar-item">{strings.testPage}</a>
+        <a className="nav-bar-item">{tr('testPage')}</a>
       </Link>
     </div>
     <div className="main-cat-image-container">
@@ -23,4 +28,4 @@ const Main = ({}: MainProps): JSX.Element => (
 )
 
 
-export default Main
+export default withTranslation()(HomePage)
