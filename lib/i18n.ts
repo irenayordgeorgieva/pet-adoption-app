@@ -3,7 +3,6 @@ import path from 'path'
 
 
 const i18next = new NextI18Next({
-  browserLanguageDetection: true,
   defaultLanguage: 'bg',
   defaultNS: 'common',
   localePath: path.resolve('./public/static/locales'),
